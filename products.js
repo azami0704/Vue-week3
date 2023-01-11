@@ -84,7 +84,6 @@ const app = {
         const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/, "$1");
         if (token) {
             //記得刪掉
-            console.log(token);
             axios.defaults.headers.common['Authorization'] = token;
             axios.post('/v2/api/user/check')
                 .then(() => {
