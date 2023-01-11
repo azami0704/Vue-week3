@@ -15,7 +15,7 @@ const app={
         login(){
             axios.post('/v2/admin/signin',this.user)
             .then(res=>{
-                document.cookie=`token=${res.data.token};expires=${res.data.expired};`;
+                document.cookie=`token=${res.data.token};expires=${new Date(res.data.expired)};`;
                 window.location.href='./admin.html';
             })
             .catch(err=>{
